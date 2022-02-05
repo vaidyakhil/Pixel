@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mediaData"
+            type="com.vaidyakhil.pixel.listing.model.PixelMedia" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".listing.MediaFragment">
+
+        <ImageView
+            android:id="@+id/media_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            mediaSrc="@{mediaData.src}"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/provider_metadata"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingVertical="32dp"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/provider_metadata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/media_provider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/photographer_name"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/photographer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mediaData.photographer}"
+            tools:text="Akhil Vaidya"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
